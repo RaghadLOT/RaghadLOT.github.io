@@ -1,0 +1,17 @@
+
+
+h2{
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+th{
+    background: black;
+    color:white;
+    padding: 8px;
+}
+
+table{
+    text-align: center;
+}

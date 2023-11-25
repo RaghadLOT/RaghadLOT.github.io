@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutor page</title>
+    <link rel="stylesheet" href="BB.css">
+    <!-- <script src="ByteJava.js"></script> -->
+</head>
+
+<header>
+    <div class="bannerMini"> 
+        <div class="navbar"> <!--nav bar-->
+         <a href="ByteBuddiesHome.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
+         <ul> 
+             <li> <a href="Courses.html">Courses</a></li>
+             <li> <a href="tutorspage.html">Tutors</a></li>
+             <li> <a href="Parent-dash.html">Parent</a></li>
+             <li> <a href="adminpage.html">Administrator</a></li>
+         </ul>
+        </div> 
+    </div>
+</header><!--nav bar end-->
+
+
+<body class="tutorsBody">
+    <div class="bread" style="margin-top: -2rem;" >
+        <ul class="breadcrumb">
+            <li><a href="ByteBuddiesHome.html">Home</a></li>
+            <li>Tutors</li>
+          </ul>
+    </div>
+
+    <div class="doctors-list" style="float: inline-end; margin-top: 2em;">
+        <label for="sort" >Sort by:</label>
+        <select id="sort" onchange="sortTutors()">
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+    </div>
+
+    <!-- <body class="tutorsBody"> -->
+    <section id="tutor-list" class="tutorContainer">
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor1.jpeg" alt="tutor 1">
+            </div>
+            <h2>Alex</h2> 
+            <p>Teaching topics: Fundamentals of Programming</p>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor2.png" alt="tutor 2">
+            </div>
+            <h2>Clara</h2>
+            <p>Teaching topics: Artificial Intelligence</p>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor3.png" alt="tutor 3">
+            </div>
+            <h2>Jess</h2>
+            <p>Teaching topics: Web Development</p>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor4.jpeg" alt="tutor 4">
+            </div>
+            <h2>Neven</h2>
+            <p>Teaching topics: Database Management</p>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor5.jpeg" alt="tutor 5">
+            </div>
+            <h2>Felix</h2>
+            <p>Teaching topics: Machine Learning</p>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="photos/tutor6.jpeg" alt="tutor 6">
+            </div>
+            <h2>Alen</h2>
+            <p>Teaching topics: Robotics</p>
+        </div>
+    </section>
+<!-- </body> -->
+
+<footer>
+    <section class="footer"> <!-- footer section  -->
+    
+        <div class="box-container">
+            <div class="box">
+    
+                <h3>contact info</h3>
+            <div class="contactUs">
+                <p><i class="fas fa-phone"></i> +966 50000000 </p>
+                <p><i class="fas fa-envelope"></i> +011 4879456 </p>
+                <p><i class="fas fa-map-marker-alt"></i> Bytebuddies@info.com </p>
+            </div>
+            </div>
+    
+            <div class="box">
+                
+            <div class="followUs">
+                <span class="icon"><a href="https://twitter.com/home"><img src="photos/Twitter.png" alt="twitter"></a></span>
+                <span class="icon"><a href="https://www.instagram.com/"><img src="photos/instagram.png" alt="instagram"></a></span>
+                <span class="icon"><a href="https://www.linkedin.com/feed/"><img src="photos/Linkedin.png" alt="linkedin"></a></span>
+            </div>
+            </div>
+    
+            <div class="box">
+                <button id="customizeBtn">Customize</button>
+            </div>
+    
+            <a href="ByteBuddiesHome.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
+    
+        </div>
+    
+        <div class="credit">©2023 ByteBuddies. All rights reserved.</div>
+    </section>
+    </footer>
+    
+<!-- </body> -->
+<script>
+    function sortTutors() {
+    var selectElement = document.getElementById("sort");
+    var selectedValue = selectElement.value;
+    var tutorList = document.getElementById("tutor-list");
+    var tutors = tutorList.getElementsByClassName("card");
+
+    // Convert HTMLCollection to an array for easier manipulation
+    var tutorsArray = Array.from(tutors);
+
+    // Sort the tutors based on the selected option
+    if (selectedValue === "asc") {
+        tutorsArray.sort(function (a, b) {
+            var tutorA = a.getElementsByTagName("h2")[0].innerText.toUpperCase();
+            var tutorB = b.getElementsByTagName("h2")[0].innerText.toUpperCase();
+            return tutorA.localeCompare(tutorB);
+        });
+    } else if (selectedValue === "desc") {
+        tutorsArray.sort(function (a, b) {
+            var tutorA = a.getElementsByTagName("h2")[0].innerText.toUpperCase();
+            var tutorB = b.getElementsByTagName("h2")[0].innerText.toUpperCase();
+            return tutorB.localeCompare(tutorA);
+        });
+    }
+
+    // Remove existing tutors from the list
+    while (tutorList.firstChild) {
+        tutorList.removeChild(tutorList.firstChild);
+    }
+
+    // Append the sorted tutors back to the list
+    tutorsArray.forEach(function (tutor) {
+        tutorList.appendChild(tutor);
+    });
+}
+</script>
+<script src="ByteJava.js"></script>
+</body>
+</html>

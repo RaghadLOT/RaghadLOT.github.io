@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="BB.css">
+    <title>Course Enrolment</title>
+    <style>
+       
+        #enrollmentForm.theme-two{
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h3{
+            
+    font-size: 20px;
+    color: #980089;
+    margin-bottom: 10px;
+    display: inline;
+    
+    }
+    
+
+        form {
+            max-width: 30px;
+            margin: 0 auto;
+        }
+
+        label, select, img {
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        input[type="checkbox"] {
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
+       
+        .label{
+            font-family:'Agency FB','sans-serif';
+            float: center;
+        }
+        .Course{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    gap:1.5rem;
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+  .Course .boox{
+    height: 300px;
+    width: 340px;
+    margin: 30px;
+    /* flex:1 1 30rem; */
+    border-radius: .5rem;
+    border:2px solid #3f283e;
+    padding:1rem;
+    position: relative;
+  }
+  
+  .Course .boox img{
+    height:11em;
+    width:14em;
+    margin-bottom: 2.5em;
+    margin-top: 0.5em;
+    position: relative;
+    border-radius: 70%;
+    border: 100% solid white;
+    border-color: white;
+    
+  }
+                               
+  
+    </style>
+</head>
+
+<header>
+    <div class="bannerMini"> 
+        <div class="navbar"> <!--nav bar-->
+         <a href="ByteBuddiesHome.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
+         <ul> 
+             <li> <a href="Courses.html">Courses</a></li>
+             <li> <a href="tutorspage.html">Tutors</a></li>
+             <li> <a href="Parent-dash.html">Parent</a></li>
+             <li> <a href="adminpage.html">Administrator</a></li>
+         </ul>
+        </div> <!--nav bar end-->
+</header>
+
+<main>
+<script>
+    
+</script>
+    <div class="bread" style="margin-top: -2rem; float: right;">
+        <ul class="breadcrumb">
+            <li><a href="ByteBuddiesHome.html">Home</a></li>
+            <li><a href="Parent-dash.html">Parent</a></li>
+            <li>Available Courses</li>
+          </ul>
+    </div>
+
+<body>
+    
+           <br>
+          
+           <label for="children">Select Kid:</label>
+        <select id="children" name="children">
+            <option value="All Kids">All Kids</option>
+            <option value="Fatima">Fatima</option>
+            <option value="Ryan">Ryan</option>
+            <option value="Hessa">Hessa</option>
+            <option value="Emma">Emma</option>
+            <option value="Ayesha">Ayesha</option>
+            <option value="Maria">Maria</option>
+        </select>
+        
+        
+        <label for="tutor">Tutor:</label>
+        <select id="tutor" name="tutor">
+            <option value="All Tutors">All Tutors</option>
+            <option value="T.Maha">T.Maha</option>
+            <option value="T.Manal">T.Manal</option>
+            <option value="T.Lama">T.Lama</option>
+            <option value="T.Amal">T.Amal</option>
+            <option value="T.Alex">T.Alex</option>
+            <option value="T.Clara">T.Clara</option>
+            <option value="T.Jess">T.Jess</option>
+            <option value="T.Alen">T.Alen</option>
+            <option value="T.Flex">T.Flex</option>
+        </select>
+        
+        <label for="prerequisite">Prerequisite:</label>
+        <select id="prerequisite" name="prerequisite">
+            <option value="prerequisite1">All prerequisite </option>
+            <option value="prerequisite1">Python</option>
+            <option value="prerequisite2">JavaScript</option>
+            <option value="prerequisite3">Scratch</option>
+        </select>
+        
+
+        <form id="enrollmentForm" action="#" method="post">
+         
+        
+        
+         <h3>Available Courses</h3>
+         
+
+         <section class="Course"> 
+           
+             <div class="boox">
+                
+
+                 <img src="photos/Course-1.png" alt="">
+                 
+                      <h3>Python is fun</h3>
+                      <label><input type="checkbox" name="course" value="course1"></label><br>
+                      </div>
+                     
+                                <div class="boox">
+
+                                    <img src="photos/Course-2.png" alt="">
+                                    
+                                        <h3>Game programming 1 with Python</h3>
+                                        <label><input type="checkbox" name="course" value="course2"></label><br>
+                                        
+                                        
+                                           
+                             
+                                </div>
+                
+                                <div class="boox">
+                
+                                    <img src="photos/Course-3.png" alt="">
+                                    
+                                        <h3>Game Programming 1 With Javascript</h3>
+                                        <label><input type="checkbox" name="course" value="course3"></label><br>
+                                        
+                                        
+                                </div>
+                
+                                <div class="boox">
+                
+                                    <img src="photos/Course-4.png" alt="">
+                                    
+                                        <h3>Game Programming 2 With Javascript</h3>
+                                        <label><input type="checkbox" name="course" value="course4"></label><br>
+                                        
+                                        
+                                </div>
+                
+                                <div class="boox">
+                
+                                    <img src="photos/Course-5.png" alt="">
+                                    
+                                        <h3>Scratch Catch the Cat!</h3>
+                                        <label><input type="checkbox" name="course" value="course5"></label><br>
+                                        
+                                        
+                              
+                                </div>
+                
+                                <div class="boox">
+                
+                                    <img src="photos/Course-6.png" alt="">
+                                   
+                                        <h3>Scratch Fruit Slash</h3>
+                                        <label><input type="checkbox" name="course" value="course6"></label><br>
+                                        
+                                         
+                                </div>
+                            </div>
+                            </section>
+
+        
+      
+                            <button type="submit">Enrol</button>
+    </form>
+    <div id="enrollmentInfo"></div>
+    <section class="footer"> <!-- footer section  -->
+
+        <div class="box-container">
+            <div class="box">
+    
+                <h3>contact info</h3>
+            <div class="contactUs">
+                <p><i class="fas fa-phone"></i> +966 50000000 </p>
+                <p><i class="fas fa-envelope"></i> +011 4879456 </p>
+                <p><i class="fas fa-map-marker-alt"></i> Bytebuddies@info.com </p>
+            </div>
+            </div>
+    
+            <div class="box">
+                
+            <div class="followUs">
+                <span class="icon"><a href="https://twitter.com/home"><img src="photos/Twitter.png" alt="twitter"></a></span>
+                <span class="icon"><a href="https://www.instagram.com/"><img src="photos/instagram.png" alt="instagram"></a></span>
+                <span class="icon"><a href="https://www.linkedin.com/feed/"><img src="photos/Linkedin.png" alt="linkedin"></a></span>
+            </div>
+            </div>
+    
+            <div class="box">
+                <button id="customizeBtn">Customize</button>
+            </div>
+    
+            <a href="ByteBuddiesHome.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
+    
+        </div>
+    
+        <div class="credit">©2023 ByteBuddies. All rights reserved.</div>
+    </section>
+
+
+<script>
+
+  // Retrieve children's names from local storage
+function getChildrenNames() {
+    var children = JSON.parse(localStorage.getItem('children'));
+    return children || [];
+}
+
+// Define the courses array
+const courses = [
+    { name: "Python is fun", tutor: "T.Maha", prerequisite: null },
+    { name: "Game programming 1 with Python", tutor: "T.Manal", prerequisite: "Python is fun" },
+    { name: "Game programming 1 with Javascript", tutor: "T.Lama", prerequisite: "Python is fun" },
+    { name: "Game programming 2 with Javascript", tutor: "T.Amal", prerequisite: "Python is fun" },
+    { name: "Scratch Catch the Cat!", tutor: "T.Alex", prerequisite: "Game programming 1 with Python" },
+    { name: "Scratch Fruit Slash", tutor: "T.Clara", prerequisite: "Game programming 1 with Python" },
+    { name: "Advanced Python Programming", tutor: "T.Jess", prerequisite: "Python is fun" },
+    { name: "Web Development with JavaScript", tutor: "T.Alen", prerequisite: null },
+    { name: "Python for Data Science", tutor: "T.Flex", prerequisite: null }
+    
+    
+];
+
+// Function to get unique values from an array
+function getUniqueValues(arr) {
+    return [...new Set(arr)];
+}
+
+
+const uniqueTutors = getUniqueValues(courses.map(course => course.tutor));
+const uniquePrerequisites = getUniqueValues(courses.filter(course => course.prerequisite !== null).map(course => course.prerequisite));
+
+// Populate filter options for tutors
+const tutorDropdown = document.getElementById("tutor");
+uniqueTutors.forEach(tutor => {
+    const option = document.createElement("option");
+    option.value = tutor;
+    option.text = tutor;
+    tutorDropdown.appendChild(option);
+});
+
+// Populate filter options for prerequisites
+const prerequisiteDropdown = document.getElementById("prerequisite");
+const allPrerequisitesOption = document.createElement("option");
+allPrerequisitesOption.value = "All prerequisites";
+allPrerequisitesOption.text = "All prerequisites";
+prerequisiteDropdown.appendChild(allPrerequisitesOption);
+
+uniquePrerequisites.forEach(prerequisite => {
+    const option = document.createElement("option");
+    option.value = prerequisite;
+    option.text = prerequisite;
+    prerequisiteDropdown.appendChild(option);
+});
+
+// Function to filter courses by tutor
+function filterCoursesByTutor(tutor) {
+  return courses.filter(course => course.tutor === tutor);
+}
+
+// Function to filter courses by prerequisite
+function filterCoursesByPrerequisite(prerequisite) {
+  return courses.filter(course => course.prerequisite === prerequisite);
+}
+
+// Event listener for filter selection by tutor
+const tutorFilter = document.getElementById('tutor');
+tutorFilter.addEventListener('change', function() {
+  const selectedTutor = this.value;
+  const filteredCourses = filterCoursesByTutor(selectedTutor);
+  displayFilteredCourses(filteredCourses);
+});
+
+// Event listener for filter selection by prerequisite
+const prerequisiteFilter = document.getElementById('prerequisite');
+prerequisiteFilter.addEventListener('change', function() {
+  const selectedPrerequisite = this.value;
+  const filteredCourses = filterCoursesByPrerequisite(selectedPrerequisite);
+  displayFilteredCourses(filteredCourses);
+});
+
+// Function to display filtered courses in the form
+function displayFilteredCourses(filteredCourses) {
+  const coursesForm = document.getElementById('enrollmentForm');
+  const coursesSection = document.querySelector('.Course');
+  
+  // Clear previous courses displayed in the form
+  coursesSection.innerHTML = '';
+
+  // Display filtered courses in the form
+  filteredCourses.forEach(course => {
+    const courseBox = document.createElement('div');
+    courseBox.classList.add('boox');
+    
+    const courseImg = document.createElement('img');
+    courseImg.src = `photos/${course.name.replace(/\s+/g, '-').toLowerCase()}.png`;
+    courseImg.alt = '';
+    
+    const courseTitle = document.createElement('h3');
+    courseTitle.textContent = course.name;
+
+    const courseCheckbox = document.createElement('label');
+    courseCheckbox.innerHTML = `<input type="checkbox" name="course" value="${course.name}">`;
+
+    courseBox.appendChild(courseImg);
+    courseBox.appendChild(courseTitle);
+    courseBox.appendChild(courseCheckbox);
+    coursesSection.appendChild(courseBox);
+  });
+}
+
+// Event listener for form submission
+const form = document.getElementById('enrollmentForm');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const selectedChild = document.getElementById('children').value;
+  const selectedCourses = document.querySelectorAll('input[name="course"]:checked');
+  const selectedTutor = document.getElementById('tutor').value;
+
+  if (selectedChild === 'All Kids' || selectedCourses.length === 0) {
+    alert('Please select a child and at least one course.');
+    return;
+  }
+
+// Prepare the information to display
+let coursesInfo = '<br>Selected Courses:<br>';
+  selectedCourses.forEach(course => {
+    coursesInfo += `- ${course.value} (Tutor: ${selectedTutor})`;
+  });
+
+  // Find the div where you want to display the information
+  const infoDisplay = document.getElementById('enrollmentInfo');
+
+  // Display information about the selected kid and tutor
+  infoDisplay.innerHTML = `Enrolled Kid: ${selectedChild} ${coursesInfo}`;
+ 
+  // Clear the form or perform any additional actions here
+  form.reset();
+});
+
+</script>
+<script src="ByteJava.js"></script>
+</body>
+</html>

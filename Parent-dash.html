@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>ByteBuddies - Parent</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--external style sheet for rating-->
+        <link rel="stylesheet" href="BB.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <script src="Enrol.js"></script>
+    </head>
+
+    <body>
+        
+        <header>
+            <div class="bannerMini"> 
+                <div class="navbar"> <!--nav bar-->
+                 <a href="ByteBuddiesHome.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
+                 <ul> 
+                     <li> <a href="Courses.html">Courses</a></li>
+                     <li> <a href="tutorspage.html">Tutors</a></li>
+                     <li> <a href="Parent-dash.html">Parent</a></li>
+                     <li> <a href="adminpage.html">Administrator</a></li>
+                 </ul>
+                </div> 
+            </div>
+        </header><!--nav bar end-->
+        
+
+        <div class="bread" style="margin-top: -2rem;">
+            <ul class="breadcrumb">
+                <li><a href="ByteBuddiesHome.html">Home</a></li>
+                <li>Parent</li>
+              </ul>
+        </div>
+        
+        <br>
+        <br>
+        <div class="row">
+            <div class="column">
+                <a href="evaluationpage.html"><img src="photos/courseEval.png" width="40%" height="50% "alt=""></a>
+                <div class="content"></div>
+                <h1 class="pDash">Course Evaluation</h1>
+            </div>
+
+            <div class="column">
+                <a href="enrol.html"><img src="photos/courseEnrol.png" width="40%" height="50% "alt=""></a>
+                <div class="content2"></div>
+                <h1 class="pDash">Course Enrolment</h1>
+            </div>
+
+            <div class="column">
+                <a href="registerr.html"><img src="photos/newreg2.png" width="40%" height="50%" alt=""></a>
+                <div class="content3"></div>
+                <h1 class="pDash">New Register</h1>
+            </div>
+
+        </div>
+
+        <main>
+
+            <h1 class="pDash1">Your kids</h1>
+            <hr class="Chr">
+            <br>
+
+            <section class="kids">
+
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/girl1.png" alt="">
+                            <div class="infoK">
+                                <h3>Fatima</h3>
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div>
+                
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/girl2.png" alt="">
+                            <div class="infoK">
+                                <h3>Hessa</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/girl3.png" alt="">
+                            <div class="infoK">
+                                <h3>Ayesha</h3>
+                            </div>
+                        </div>
+                    </div>    
+                        
+                </div>
+
+            <!-- <div class="K2"> -->
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/boy.png" alt="">
+                            <div class="infoK">
+                                <h3>Ryan</h3>
+                            </div>
+                        </div>
+                    </div> 
+       
+                </div>
+
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/girl6.png" alt="">
+                            <div class="infoK">
+                                <h3>Emma</h3>
+                            </div>
+                        </div>
+                    </div> 
+      
+                </div>
+
+                <div class="box">
+
+                    <div class="K1">
+                        <div class="kid-info">
+                            <img src="photos/girl5.png" alt="">
+                            <div class="infoK">
+                                <h3>Maria</h3>
+                            </div>
+                        </div>
+                    </div> 
+    
+                </div>
+
+            </section>
+            
+            <br>
+            
+        <script>
+            // Check if local storage has parent's children names
+    if (!localStorage.getItem('parentChildren')) {
+    // If local storage is empty, save 2 children's names
+    const defaultChildren = ['Fatima', 'Hessa'];
+    localStorage.setItem('parentChildren', JSON.stringify(defaultChildren));
+} else {
+    // If local storage has children names, retrieve and display them
+    const parentChildren = JSON.parse(localStorage.getItem('parentChildren'));
+
+    // Assume you have elements with IDs for displaying children names
+    const child1Element = document.getElementById('Fatima');
+    const child2Element = document.getElementById('Hessa');
+
+    // Display children names on the page
+    if (parentChildren.length >= 1) {
+        child1Element.textContent = parentChildren[0];
+    }
+
+    if (parentChildren.length >= 2) {
+        child2Element.textContent = parentChildren[1];
+    }
+}
+
+        //     document.addEventListener("DOMContentLoaded", function () {
+        //     // Check if local storage has parent's children
+        //     let childrenData = localStorage.getItem("parentChildren");
+
+        //     if (!childrenData) {
+        //         // Local storage is empty, save 2 children's names
+        //         const childrenNames = ["Fatima", "Hessa"]; // You can customize the names
+        //         localStorage.setItem("parentChildren", JSON.stringify(childrenNames));
+        //         displayChildren(childrenNames);
+        //     } else {
+        //         // Local storage has data, retrieve and display it
+        //         const storedChildren = JSON.parse(childrenData);
+        //         displayChildren(storedChildren);
+        //     }
+
+        //     function displayChildren(children) {
+        //         // Assuming you have a section with the class "kids" to display children
+        //         const kidsSection = document.querySelector(".kids");
+
+        //         // Clear existing content
+        //         kidsSection.innerHTML = "";
+
+        //         // Display each child
+        //         children.forEach(childName => {
+        //             const childBox = document.createElement("div");
+        //             childBox.className = "box";
+        //             childBox.innerHTML = `
+        //                 <div class="K1">
+        //                     <div class="kid-info">
+        //                         <img src="photos/default_child_image.png" alt="">
+        //                         <div class="infoK">
+        //                             <h3>${childName}</h3>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             `;
+        //             kidsSection.appendChild(childBox);
+        //         });
+        //     }
+        // });
+        </script>
+        </main>
+        
+        <footer>
+            <section class="footer"> <!-- footer section  -->
+            
+                <div class="box-container">
+                    <div class="box">
+            
+                        <h3>contact info</h3>
+                    <div class="contactUs">
+                        <p><i class="fas fa-phone"></i> +966 50000000 </p>
+                        <p><i class="fas fa-envelope"></i> +011 4879456 </p>
+                        <p><i class="fas fa-map-marker-alt"></i> Bytebuddies@info.com </p>
+                    </div>
+                    </div>
+            
+                    <div class="box">
+                        
+                    <div class="followUs">
+                        <span class="icon"><a href="https://twitter.com/home"><img src="photos/Twitter.png" alt="twitter"></a></span>
+                        <span class="icon"><a href="https://www.instagram.com/"><img src="photos/instagram.png" alt="instagram"></a></span>
+                        <span class="icon"><a href="https://www.linkedin.com/feed/"><img src="photos/Linkedin.png" alt="linkedin"></a></span>
+                    </div>
+                    </div>
+            
+                    <div class="box">
+                        <button id="customizeBtn">Customize</button>
+                    </div>
+            
+                    <a href="ByteBuddiesHome.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
+            
+                </div>
+            
+                <div class="credit">©2023 ByteBuddies. All rights reserved.</div>
+            </section>
+            </footer>
+            <script src="ByteJava.js"></script>
+    </body>
+</html>
