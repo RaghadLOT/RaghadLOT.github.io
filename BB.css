@@ -15,6 +15,79 @@
     background-attachment: scroll;
 }
 
+/* ---------------- */
+:root {
+
+  --primary-color:#f7f7f7; 
+  --secondary-color: #333;
+  --header-color: linear-gradient(90deg, #696a8a, #0d0f8e);
+  --text-color:#333; 
+  --text-color2: rgb(99, 31, 113);
+  --text-color3:#333 ;
+}
+
+.dark-theme{
+  --primary-color: rgb(62, 43, 78);
+  --secondary-color:  #e179ab;
+  --test-color: black;
+  --header-color: linear-gradient(90deg, #292a3c, #26262f);
+  --text-color:#fff7f7; 
+  --text-color2: rgb(255, 255, 255);
+  --text-color3:black;
+
+}
+
+#logo1 {
+      width: 40px;
+      /* size: 50px; */
+      height: 40px;
+      cursor: pointer;
+      position: relative;
+      margin-left: 6.5em;
+      margin-top: 5em;
+      /* top: auto; 
+      left: 15px;  */
+      /* box-shadow: 0px 0px 10px #565656; */
+    }
+  
+body.dark-theme {
+  background-color: var(--test-color);
+  color: var(--text-color);
+}
+
+div.Courses.box.dark-theme {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* h1.dark-theme {
+  color: var(--text-color);
+} */
+
+main.dark-theme {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+footer.dark-theme {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.headings.dark-theme {
+  color: var(--text-color);
+}
+
+header.dark-theme {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+section.dark-theme {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+/* ------------------- */
 
   @media only screen and (max-width: 390px) {
     body {
@@ -71,7 +144,6 @@
     position: relative;
 }
 
-
 .navbar ul li a{
     text-decoration: none;
     color: white;
@@ -94,7 +166,6 @@
 width: 100%;
 }
 
-
 .vision h1{
     font-size: 5rem;
     width: 100%;
@@ -105,28 +176,10 @@ width: 100%;
     word-spacing: 1px;
 }
 
-body.theme-two {
-  background-color: rgb(62, 43, 78);
-  color: white;
-}
-
-div.theme-two {
-  background-color: rgb(62, 43, 78);
-  color: white;
-}
-
-/* footer.theme-two {
-  color: white;
-} */
-/* section.theme-two {
-  background-color: #404040;
-  color: white;
-} */
-
 .headings {
     text-align: center;
     margin-top: 6rem;
-    color: #3f283e;
+    /* color: #3f283e; */
     font-size: xx-large;
 }
 
@@ -140,7 +193,7 @@ div.theme-two {
     background-color: #e179ac;
   }
 
-  .footer .box-container{
+.footer .box-container{
     display: flex;
     flex-wrap: wrap;
     gap:1.5rem;
@@ -266,7 +319,7 @@ div.theme-two {
   }
 
   .Courses .box .star i{
-    color: rgb(18,17,31);
+    /* color: rgb(18,17,31); */
     font-size: 1.5rem;
     padding: 0.5rem 0;
     position: relative;
@@ -286,13 +339,13 @@ div.theme-two {
   
   .Courses .box .CC .Course-info h3{
     font-size: 1.5rem;
-    color:#333;
+    /* color:#333; */
   }
   
   .Courses .box .desc{
     padding:1rem 0;
     font-size: 1.6rem;
-    color:#666;
+    /* color:#666; */
     align-items: center;
   }
 
@@ -368,7 +421,7 @@ div.theme-two {
   }
 
   .review .box .star1 i{ 
-    color: rgb(18,17,31);
+    /* color: rgb(18,17,31); */
     font-size: 1.5rem;
     padding: 0.5rem 0;
     position: relative;
@@ -389,13 +442,13 @@ div.theme-two {
   
   .review .box .Parent .Parent-info h3{
     font-size: 2rem;
-    color:#333;
+    /* color:#333; */
   }
   
   .review .box .feedback{
     padding:1rem 0;
     font-size: 1.6rem;
-    color:#666;
+    /* color:#666; */
     align-items: center;
   }
 
@@ -452,13 +505,13 @@ div.theme-two {
 
 h1.pDash{
     font-size: 20px;
-    color: #3f283e;
+    /* color: #3f283e; */
     margin-bottom: 10px;
 }
 
 h1.pDash1{
     font-size: xx-large;
-    color: #3f283e;
+    /* color: #3f283e; */
     margin-bottom: 10px;
     margin-top: 50px;
     text-align: center;
@@ -498,7 +551,7 @@ h1.pDash1{
 
 .kids .box h3 {
     font-size: 2rem;
-    color:#333;
+    /* color:#333; */
     margin-top: -8rem;
     margin-left: 12rem;
 }
@@ -506,7 +559,7 @@ h1.pDash1{
 a.hideDisplay {
     position: relative;
     z-index: 20;
-    color: #e179ac;
+    /* color: #e179ac; */
     text-decoration: none;
 }
 
@@ -616,7 +669,7 @@ span.showBodyOfDisplayOnHover {
 
 .card h2{
     margin-top: 25px ;
-    color: #333;
+    /* color: #333; */
     font-size: 22px;
     font-weight: 600;
 }
@@ -669,6 +722,7 @@ table  {
        box-shadow: 0px 0px 5px #d7d3d3;
        width: 100%;
        float: left;
+       /* color: black; */
        /* border-radius: 2em; */
    
    }
@@ -703,7 +757,7 @@ table  {
       /* ----------more btn---------- */
    .dropbtn {
     background-color: #e179ac;
-    color: white;
+    /* color: white; */
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -734,7 +788,7 @@ table  {
   }
   
   .dropdown-content a {
-    color: black;
+    /* color: black; */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -752,7 +806,7 @@ table  {
 
   .dropbtn1 {
     background-color: #e179ac;
-    color: white;
+    /* color: white; */
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -783,7 +837,7 @@ table  {
   }
   
   .dropdown-content1 a {
-    color: black;
+    /* color: black; */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -801,7 +855,7 @@ table  {
 
   .dropbtn2 {
     background-color: #e179ac;
-    color: white;
+    /* color: white; */
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -832,7 +886,7 @@ table  {
   }
   
   .dropdown-content2 a {
-    color: black;
+    /* color: black; */
     padding: 12px 16px;
     text-decoration: none;
     display: block;

@@ -2,7 +2,7 @@
 <head>
     <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
     <link rel="stylesheet" href="BB.css">
-    <!-- <script src="ByteJava.js"></script> -->
+    <script src="ByteJava.js"></script>
 </head>
 <body>
   <header>
@@ -162,9 +162,6 @@
      </select>
     </div>
     </table>
-
-    
-
     <footer>
       <section class="footer"> <!-- footer section  -->
       
@@ -188,9 +185,6 @@
               </div>
               </div>
       
-              <div class="box">
-                  <button id="customizeBtn">Customize</button>
-              </div>
       
               <a href="index.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
       
@@ -200,6 +194,33 @@
       </section>
       </footer>
      
-      <script src="ByteJava.js"></script>
-  </body>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var icon = document.getElementById("logo1");
+    
+            // Function to set the theme and icon
+            function setThemeAndIcon() {
+                if (document.body.classList.contains("dark-theme")) {
+                    icon.src = "photos/logoBG.png";
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    icon.src = "photos/logo.png";
+                    localStorage.setItem("theme", "light");
+                }
+            }
+    
+            // Check if theme preference is stored in localStorage
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                document.body.classList.add(savedTheme + "-theme");
+                setThemeAndIcon();
+            }
+    
+            // Toggle theme and update icon on click
+            icon.onclick = function() {
+                document.body.classList.toggle("dark-theme");
+                setThemeAndIcon();
+            };
+        });
+    </script>  </body>
   </html>

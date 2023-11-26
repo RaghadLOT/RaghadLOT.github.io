@@ -14,7 +14,7 @@
         h3{
             
     font-size: 20px;
-    color: #980089;
+    /* color: #980089; */
     margin-bottom: 10px;
     display: inline;
     
@@ -70,7 +70,6 @@
     border-radius: 70%;
     border: 100% solid white;
     border-color: white;
-    
   }
                                
   
@@ -80,7 +79,7 @@
 <header>
     <div class="bannerMini"> 
         <div class="navbar"> <!--nav bar-->
-         <a href="ByteBuddiesHome.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
+         <a href="index.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
          <ul> 
              <li> <a href="Courses.html">Courses</a></li>
              <li> <a href="tutorspage.html">Tutors</a></li>
@@ -94,19 +93,19 @@
 
     <div class="bread" style="margin-top: -2rem; float: right;">
         <ul class="breadcrumb">
-            <li><a href="ByteBuddiesHome.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="Parent-dash.html">Parent</a></li>
             <li>Available Courses</li>
           </ul>
     </div>
 </main>
 <body>
-    
            <br>
           
            <label for="childSelect">Select Child:</label>
            <select id="childSelect"></select>
-         
+           <!-- <span id="childNameDisplay"></span> -->
+
      
            <label for="tutorFilter">Filter by Tutor:</label>
            <select onchange="filterCoursesByTutor(this.value)" id="tutorFilter"></select>
@@ -120,9 +119,8 @@
     <form>
          
         
-        
+
          <h3>Available Courses</h3>
-         
 
          <section class="Course"> 
           <div id="courseCheckboxes" class="Course"></div>
@@ -130,7 +128,7 @@
 
         
       
-        <button type="button" onclick="submitForm()">Enrol</button>
+        <button type="button" onclick="submitForm()">Enroll</button>
         <div id="displayInfo"></div>
     </form>
 
@@ -165,7 +163,42 @@
     
     </section>
     <script>
-      const children = JSON.parse(localStorage.getItem("children")) || [];
+
+      // Retrieve child's name from local storage
+const childName = localStorage.getItem('childName');
+
+// Display the child's name in the 'Select Kid' filter
+const childSelect = document.getElementById('childSelect');
+
+// Check if 'childName' is available and the select element exists
+if (childName && childSelect) {
+    const childOption = document.createElement('option');
+    childOption.value = childName;
+    childOption.textContent = childName;
+    
+    // Insert the option at the beginning of the select element
+    childSelect.insertBefore(childOption, childSelect.firstChild);
+}
+// Display the child's name in the HTML element with ID 'childNameDisplay'
+const displayElement = document.getElementById('childNameDisplay');
+
+// Check if 'childName' is available and the display element exists
+if (childName && displayElement) {
+    displayElement.textContent = localStorage.childName;
+}
+      // JavaScript code to populate the "Select Child" dropdown
+  const childrenSelect = document.getElementById("childSelect");
+  
+  // Get children from local storage
+  const storedChildren = JSON.parse(localStorage.getItem("childSelect")) || [];
+  
+  // Populate dropdown options
+  storedChildren.forEach((child) => {
+  const option = document.createElement("option");
+  option.value = child;
+  option.textContent = child;
+  childrenSelect.appendChild(option);
+  });
       const courses = [
         ["Game programming 1 with Python", "T.Maha", "", "photos/Course-2.png"],
         ["Game Programming 1 With Javascript", "T.Manal", "javascript", "photos/Course-3.png"],
@@ -173,20 +206,8 @@
         ["Scratch Catch the Cat!", "T.Lama", "C++", "photos/Course-5.png"],
         ["Scratch Fruit Slash", "T.Amal", "C#", "photos/Course-6.png"],
         ["Python is fun", "T.Fahad", "PHP", "photos/Course-1.png"],
-        // ["Course8", "Tutor3", "Course7"],
-        // ["Course9", "Tutor4", ""],
-        // ["Course10", "Tutor5", ""],
-        // Add more courses with tutors and prerequisites as needed...
       ];
-
-      const childSelect = document.getElementById("childSelect");
-      children.forEach((child) => {
-        const option = document.createElement("option");
-        option.value = child;
-        option.textContent = child;
-        childSelect.appendChild(option);
-      });
-
+  
       const courseCheckboxes = document.getElementById("courseCheckboxes");
       courses.forEach((course) => {
         const checkbox = document.createElement("input");
@@ -197,25 +218,22 @@
         checkbox.type = "checkbox";
         checkbox.value = course[0];
         checkbox.id = `courseCheckbox_${course[0]}`;
-
+  
         img.src = course[3]
         const label = document.createElement("label");
         label.htmlFor = `courseCheckbox_${course[0]}`;
         label.textContent = course[0];
         h3.textContent = course[0];
-        // courseCheckboxes.appendChild(checkbox);
-        // courseCheckboxes.appendChild(img);
-        // courseCheckboxes.appendChild(h3);
         box.appendChild(checkbox)
         box.appendChild(img)
         box.appendChild(h3);
         courseCheckboxes.appendChild(box)
         courseCheckboxes.appendChild(document.createElement("br"));
       });
-
+  
       const tutorFilter = document.getElementById("tutorFilter");
       const prerequisiteFilter = document.getElementById("prerequisiteFilter");
-
+  
       const tutors = [...new Set(courses.map((course) => course[1]))];
       tutors.forEach((tutor) => {
         const option = document.createElement("option");
@@ -223,7 +241,7 @@
         option.textContent = tutor;
         tutorFilter.appendChild(option);
       });
-
+  
       const prerequisites = [...new Set(courses.map((course) => course[2]))];
       prerequisites.forEach((prerequisite) => {
         const option = document.createElement("option");
@@ -231,7 +249,7 @@
         option.textContent = prerequisite || "None";
         prerequisiteFilter.appendChild(option);
       });
-
+  
       function filterCoursesByTutor(tutor) {
         console.log("fiter by tutor");
         courseCheckboxes.innerHTML = "";
@@ -245,15 +263,12 @@
         checkbox.type = "checkbox";
         checkbox.value = course[0];
         checkbox.id = `courseCheckbox_${course[0]}`;
-
+  
         img.src = course[3]
         const label = document.createElement("label");
         label.htmlFor = `courseCheckbox_${course[0]}`;
         label.textContent = course[0];
         h3.textContent = course[0];
-        // courseCheckboxes.appendChild(checkbox);
-        // courseCheckboxes.appendChild(img);
-        // courseCheckboxes.appendChild(h3);
         box.appendChild(checkbox)
         box.appendChild(img)
         box.appendChild(h3);
@@ -262,7 +277,7 @@
           }
         });
       }
-
+  
       function filterCoursesAndTutorByprerequisite(prerequisite) {
         const tutor = document.getElementById("tutorFilter").value;
         console.log("fiter by tutor");
@@ -277,15 +292,12 @@
         checkbox.type = "checkbox";
         checkbox.value = course[0];
         checkbox.id = `courseCheckbox_${course[0]}`;
-
+  
         img.src = course[3]
         const label = document.createElement("label");
         label.htmlFor = `courseCheckbox_${course[0]}`;
         label.textContent = course[0];
         h3.textContent = course[0];
-        // courseCheckboxes.appendChild(checkbox);
-        // courseCheckboxes.appendChild(img);
-        // courseCheckboxes.appendChild(h3);
         box.appendChild(checkbox)
         box.appendChild(img)
         box.appendChild(h3);
@@ -294,13 +306,13 @@
           }
         });
       }
-
+  
       function submitForm() {
         const selectedChild = childSelect.value;
         const selectedCourses = Array.from(
           document.querySelectorAll('input[type="checkbox"]:checked'),
         ).map((checkbox) => checkbox.value);
-
+  
         if (!selectedChild) {
           alert("Please select a child.");
           return;
@@ -309,29 +321,56 @@
           alert("Please select a course.");
           return;
         }
-
+  
         const tutor = getTutor(selectedCourses[0]); // Assume all selected courses have the same tutor
         const prerequisite = getPrerequisite(selectedCourses[0]); // Assume all selected courses have the same prerequisite
-
+  
         const displayInfo = document.getElementById("displayInfo");
         displayInfo.textContent = `Child: ${selectedChild}, Courses: ${selectedCourses.join(
           ", ",
         )}, Tutor: ${tutor}, Prerequisite: ${prerequisiteFilter.value? prerequisiteFilter.value: "none"}`;
-
+  
         // Clear previous information
         // Clear form
         // Other logic as needed...
       }
-
+  
       function getTutor(course) {
         const courseInfo = courses.find((c) => c[0] === course);
         return courseInfo ? courseInfo[1] : "N/A";
       }
-
+  
       function getPrerequisite(course) {
         const courseInfo = courses.find((c) => c[0] === course);
         return courseInfo ? courseInfo[2] || "None" : "N/A";
       }
+      document.addEventListener("DOMContentLoaded", function() {
+        var icon = document.getElementById("logo1");
+
+        // Function to set the theme and icon
+        function setThemeAndIcon() {
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "photos/lightbulb-fill.svg";
+                localStorage.setItem("theme", "dark");
+            } else {
+                icon.src = "photos/lightbulb.svg";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        // Check if theme preference is stored in localStorage
+        var savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.body.classList.add(savedTheme + "-theme");
+            setThemeAndIcon();
+        }
+
+        // Toggle theme and update icon on click
+        icon.onclick = function() {
+            document.body.classList.toggle("dark-theme");
+            setThemeAndIcon();
+        };
+    });
     </script>
 </body>
 </html>
