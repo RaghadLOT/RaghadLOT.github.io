@@ -147,69 +147,46 @@
             <br>
             
         <script>
-            // Check if local storage has parent's children names
-    if (!localStorage.getItem('parentChildren')) {
-    // If local storage is empty, save 2 children's names
-    const defaultChildren = ['Fatima', 'Hessa'];
-    localStorage.setItem('parentChildren', JSON.stringify(defaultChildren));
-} else {
-    // If local storage has children names, retrieve and display them
-    const parentChildren = JSON.parse(localStorage.getItem('parentChildren'));
+            document.addEventListener("DOMContentLoaded", function () {
+            // Check if local storage has parent's children
+            let childrenData = localStorage.getItem("parentChildren");
 
-    // Assume you have elements with IDs for displaying children names
-    const child1Element = document.getElementById('Fatima');
-    const child2Element = document.getElementById('Hessa');
+            if (!childrenData) {
+                // Local storage is empty, save 2 children's names
+                const childrenNames = ["Fatima", "Hessa"]; // You can customize the names
+                localStorage.setItem("parentChildren", JSON.stringify(childrenNames));
+                displayChildren(childrenNames);
+            } else {
+                // Local storage has data, retrieve and display it
+                const storedChildren = JSON.parse(childrenData);
+                displayChildren(storedChildren);
+            }
 
-    // Display children names on the page
-    if (parentChildren.length >= 1) {
-        child1Element.textContent = parentChildren[0];
-    }
+            function displayChildren(children) {
+                // Assuming you have a section with the class "kids" to display children
+                const kidsSection = document.querySelector(".kids");
 
-    if (parentChildren.length >= 2) {
-        child2Element.textContent = parentChildren[1];
-    }
-}
+                // Clear existing content
+                kidsSection.innerHTML = "";
 
-        //     document.addEventListener("DOMContentLoaded", function () {
-        //     // Check if local storage has parent's children
-        //     let childrenData = localStorage.getItem("parentChildren");
-
-        //     if (!childrenData) {
-        //         // Local storage is empty, save 2 children's names
-        //         const childrenNames = ["Fatima", "Hessa"]; // You can customize the names
-        //         localStorage.setItem("parentChildren", JSON.stringify(childrenNames));
-        //         displayChildren(childrenNames);
-        //     } else {
-        //         // Local storage has data, retrieve and display it
-        //         const storedChildren = JSON.parse(childrenData);
-        //         displayChildren(storedChildren);
-        //     }
-
-        //     function displayChildren(children) {
-        //         // Assuming you have a section with the class "kids" to display children
-        //         const kidsSection = document.querySelector(".kids");
-
-        //         // Clear existing content
-        //         kidsSection.innerHTML = "";
-
-        //         // Display each child
-        //         children.forEach(childName => {
-        //             const childBox = document.createElement("div");
-        //             childBox.className = "box";
-        //             childBox.innerHTML = `
-        //                 <div class="K1">
-        //                     <div class="kid-info">
-        //                         <img src="photos/default_child_image.png" alt="">
-        //                         <div class="infoK">
-        //                             <h3>${childName}</h3>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             `;
-        //             kidsSection.appendChild(childBox);
-        //         });
-        //     }
-        // });
+                // Display each child
+                children.forEach(childName => {
+                    const childBox = document.createElement("div");
+                    childBox.className = "box";
+                    childBox.innerHTML = `
+                        <div class="K1">
+                            <div class="kid-info">
+                                <img src="photos/default_child_image.png" alt="">
+                                <div class="infoK">
+                                    <h3>${childName}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    kidsSection.appendChild(childBox);
+                });
+            }
+        });
         </script>
         </main>
         

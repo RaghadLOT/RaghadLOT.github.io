@@ -7,9 +7,6 @@
     <title>Course Enrolment</title>
     <style>
        
-        #enrollmentForm.theme-two{
-            color: white;
-        }
 
         h1 {
             text-align: center;
@@ -83,7 +80,7 @@
 <header>
     <div class="bannerMini"> 
         <div class="navbar"> <!--nav bar-->
-         <a href="index.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
+         <a href="ByteBuddiesHome.html"><img src="photos/logohori.png" alt="ByteBuddies logo" class="logoMini"></a>
          <ul> 
              <li> <a href="Courses.html">Courses</a></li>
              <li> <a href="tutorspage.html">Tutors</a></li>
@@ -94,57 +91,33 @@
 </header>
 
 <main>
-<script>
-    
-</script>
+
     <div class="bread" style="margin-top: -2rem; float: right;">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="ByteBuddiesHome.html">Home</a></li>
             <li><a href="Parent-dash.html">Parent</a></li>
             <li>Available Courses</li>
           </ul>
     </div>
-
+</main>
 <body>
     
            <br>
           
-           <label for="children">Select Kid:</label>
-        <select id="children" name="children">
-            <option value="All Kids">All Kids</option>
-            <option value="Fatima">Fatima</option>
-            <option value="Ryan">Ryan</option>
-            <option value="Hessa">Hessa</option>
-            <option value="Emma">Emma</option>
-            <option value="Ayesha">Ayesha</option>
-            <option value="Maria">Maria</option>
-        </select>
-        
-        
-        <label for="tutor">Tutor:</label>
-        <select id="tutor" name="tutor">
-            <option value="All Tutors">All Tutors</option>
-            <option value="T.Maha">T.Maha</option>
-            <option value="T.Manal">T.Manal</option>
-            <option value="T.Lama">T.Lama</option>
-            <option value="T.Amal">T.Amal</option>
-            <option value="T.Alex">T.Alex</option>
-            <option value="T.Clara">T.Clara</option>
-            <option value="T.Jess">T.Jess</option>
-            <option value="T.Alen">T.Alen</option>
-            <option value="T.Flex">T.Flex</option>
-        </select>
-        
-        <label for="prerequisite">Prerequisite:</label>
-        <select id="prerequisite" name="prerequisite">
-            <option value="prerequisite1">All prerequisite </option>
-            <option value="prerequisite1">Python</option>
-            <option value="prerequisite2">JavaScript</option>
-            <option value="prerequisite3">Scratch</option>
-        </select>
-        
-
-        <form id="enrollmentForm" action="#" method="post">
+           <label for="childSelect">Select Child:</label>
+           <select id="childSelect"></select>
+         
+     
+           <label for="tutorFilter">Filter by Tutor:</label>
+           <select onchange="filterCoursesByTutor(this.value)" id="tutorFilter"></select>
+     
+           <label for="prerequisiteFilter">Filter by Prerequisite:</label>
+           <select
+             onchange="filterCoursesAndTutorByprerequisite(this.value)"
+             id="prerequisiteFilter"
+           ></select>
+    
+    <form>
          
         
         
@@ -152,79 +125,19 @@
          
 
          <section class="Course"> 
-           
-             <div class="boox">
-                
-
-                 <img src="photos/Course-1.png" alt="">
-                 
-                      <h3>Python is fun</h3>
-                      <label><input type="checkbox" name="course" value="course1"></label><br>
-                      </div>
-                     
-                                <div class="boox">
-
-                                    <img src="photos/Course-2.png" alt="">
-                                    
-                                        <h3>Game programming 1 with Python</h3>
-                                        <label><input type="checkbox" name="course" value="course2"></label><br>
-                                        
-                                        
-                                           
-                             
-                                </div>
-                
-                                <div class="boox">
-                
-                                    <img src="photos/Course-3.png" alt="">
-                                    
-                                        <h3>Game Programming 1 With Javascript</h3>
-                                        <label><input type="checkbox" name="course" value="course3"></label><br>
-                                        
-                                        
-                                </div>
-                
-                                <div class="boox">
-                
-                                    <img src="photos/Course-4.png" alt="">
-                                    
-                                        <h3>Game Programming 2 With Javascript</h3>
-                                        <label><input type="checkbox" name="course" value="course4"></label><br>
-                                        
-                                        
-                                </div>
-                
-                                <div class="boox">
-                
-                                    <img src="photos/Course-5.png" alt="">
-                                    
-                                        <h3>Scratch Catch the Cat!</h3>
-                                        <label><input type="checkbox" name="course" value="course5"></label><br>
-                                        
-                                        
-                              
-                                </div>
-                
-                                <div class="boox">
-                
-                                    <img src="photos/Course-6.png" alt="">
-                                   
-                                        <h3>Scratch Fruit Slash</h3>
-                                        <label><input type="checkbox" name="course" value="course6"></label><br>
-                                        
-                                         
-                                </div>
-                            </div>
-                            </section>
+          <div id="courseCheckboxes" class="Course"></div>
+          </section>
 
         
       
-                            <button type="submit">Enrol</button>
+        <button type="button" onclick="submitForm()">Enrol</button>
+        <div id="displayInfo"></div>
     </form>
-    <div id="enrollmentInfo"></div>
+
     <section class="footer"> <!-- footer section  -->
 
         <div class="box-container">
+    
             <div class="box">
     
                 <h3>contact info</h3>
@@ -244,160 +157,181 @@
             </div>
             </div>
     
-            <div class="box">
-                <button id="customizeBtn">Customize</button>
-            </div>
-    
-            <a href="index.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
+            <a href="ByteBuddiesHome.html"><img src="photos/logoBG.png" alt="ByteBuddies logo"></a>
     
         </div>
     
         <div class="credit">©2023 ByteBuddies. All rights reserved.</div>
+    
     </section>
+    <script>
+      const children = JSON.parse(localStorage.getItem("children")) || [];
+      const courses = [
+        ["Game programming 1 with Python", "T.Maha", "", "photos/Course-2.png"],
+        ["Game Programming 1 With Javascript", "T.Manal", "javascript", "photos/Course-3.png"],
+        ["Game Programming 2 With Javascript", "T.Khalid", "Scrach", "photos/Course-4.png"],
+        ["Scratch Catch the Cat!", "T.Lama", "C++", "photos/Course-5.png"],
+        ["Scratch Fruit Slash", "T.Amal", "C#", "photos/Course-6.png"],
+        ["Python is fun", "T.Fahad", "PHP", "photos/Course-1.png"],
+        // ["Course8", "Tutor3", "Course7"],
+        // ["Course9", "Tutor4", ""],
+        // ["Course10", "Tutor5", ""],
+        // Add more courses with tutors and prerequisites as needed...
+      ];
 
+      const childSelect = document.getElementById("childSelect");
+      children.forEach((child) => {
+        const option = document.createElement("option");
+        option.value = child;
+        option.textContent = child;
+        childSelect.appendChild(option);
+      });
 
-<script>
+      const courseCheckboxes = document.getElementById("courseCheckboxes");
+      courses.forEach((course) => {
+        const checkbox = document.createElement("input");
+        const img = document.createElement("img");
+        const h3= document.createElement("h3");
+        const box = document.createElement("div");
+        box.classList = "boox"
+        checkbox.type = "checkbox";
+        checkbox.value = course[0];
+        checkbox.id = `courseCheckbox_${course[0]}`;
 
-  // Retrieve children's names from local storage
-function getChildrenNames() {
-    var children = JSON.parse(localStorage.getItem('children'));
-    return children || [];
-}
+        img.src = course[3]
+        const label = document.createElement("label");
+        label.htmlFor = `courseCheckbox_${course[0]}`;
+        label.textContent = course[0];
+        h3.textContent = course[0];
+        // courseCheckboxes.appendChild(checkbox);
+        // courseCheckboxes.appendChild(img);
+        // courseCheckboxes.appendChild(h3);
+        box.appendChild(checkbox)
+        box.appendChild(img)
+        box.appendChild(h3);
+        courseCheckboxes.appendChild(box)
+        courseCheckboxes.appendChild(document.createElement("br"));
+      });
 
-// Define the courses array
-const courses = [
-    { name: "Python is fun", tutor: "T.Maha", prerequisite: null },
-    { name: "Game programming 1 with Python", tutor: "T.Manal", prerequisite: "Python is fun" },
-    { name: "Game programming 1 with Javascript", tutor: "T.Lama", prerequisite: "Python is fun" },
-    { name: "Game programming 2 with Javascript", tutor: "T.Amal", prerequisite: "Python is fun" },
-    { name: "Scratch Catch the Cat!", tutor: "T.Alex", prerequisite: "Game programming 1 with Python" },
-    { name: "Scratch Fruit Slash", tutor: "T.Clara", prerequisite: "Game programming 1 with Python" },
-    { name: "Advanced Python Programming", tutor: "T.Jess", prerequisite: "Python is fun" },
-    { name: "Web Development with JavaScript", tutor: "T.Alen", prerequisite: null },
-    { name: "Python for Data Science", tutor: "T.Flex", prerequisite: null }
-    
-    
-];
+      const tutorFilter = document.getElementById("tutorFilter");
+      const prerequisiteFilter = document.getElementById("prerequisiteFilter");
 
-// Function to get unique values from an array
-function getUniqueValues(arr) {
-    return [...new Set(arr)];
-}
+      const tutors = [...new Set(courses.map((course) => course[1]))];
+      tutors.forEach((tutor) => {
+        const option = document.createElement("option");
+        option.value = tutor;
+        option.textContent = tutor;
+        tutorFilter.appendChild(option);
+      });
 
+      const prerequisites = [...new Set(courses.map((course) => course[2]))];
+      prerequisites.forEach((prerequisite) => {
+        const option = document.createElement("option");
+        option.value = prerequisite;
+        option.textContent = prerequisite || "None";
+        prerequisiteFilter.appendChild(option);
+      });
 
-const uniqueTutors = getUniqueValues(courses.map(course => course.tutor));
-const uniquePrerequisites = getUniqueValues(courses.filter(course => course.prerequisite !== null).map(course => course.prerequisite));
+      function filterCoursesByTutor(tutor) {
+        console.log("fiter by tutor");
+        courseCheckboxes.innerHTML = "";
+        courses.forEach((course) => {
+          if (course[1] === tutor) {
+            const checkbox = document.createElement("input");
+        const img = document.createElement("img");
+        const h3= document.createElement("h3");
+        const box = document.createElement("div");
+        box.classList = "boox"
+        checkbox.type = "checkbox";
+        checkbox.value = course[0];
+        checkbox.id = `courseCheckbox_${course[0]}`;
 
-// Populate filter options for tutors
-const tutorDropdown = document.getElementById("tutor");
-uniqueTutors.forEach(tutor => {
-    const option = document.createElement("option");
-    option.value = tutor;
-    option.text = tutor;
-    tutorDropdown.appendChild(option);
-});
+        img.src = course[3]
+        const label = document.createElement("label");
+        label.htmlFor = `courseCheckbox_${course[0]}`;
+        label.textContent = course[0];
+        h3.textContent = course[0];
+        // courseCheckboxes.appendChild(checkbox);
+        // courseCheckboxes.appendChild(img);
+        // courseCheckboxes.appendChild(h3);
+        box.appendChild(checkbox)
+        box.appendChild(img)
+        box.appendChild(h3);
+        courseCheckboxes.appendChild(box)
+        courseCheckboxes.appendChild(document.createElement("br"));
+          }
+        });
+      }
 
-// Populate filter options for prerequisites
-const prerequisiteDropdown = document.getElementById("prerequisite");
-const allPrerequisitesOption = document.createElement("option");
-allPrerequisitesOption.value = "All prerequisites";
-allPrerequisitesOption.text = "All prerequisites";
-prerequisiteDropdown.appendChild(allPrerequisitesOption);
+      function filterCoursesAndTutorByprerequisite(prerequisite) {
+        const tutor = document.getElementById("tutorFilter").value;
+        console.log("fiter by tutor");
+        courseCheckboxes.innerHTML = "";
+        courses.forEach((course) => {
+          if (course[1] === tutor && course[2] === prerequisite) {
+            const checkbox = document.createElement("input");
+        const img = document.createElement("img");
+        const h3= document.createElement("h3");
+        const box = document.createElement("div");
+        box.classList = "boox"
+        checkbox.type = "checkbox";
+        checkbox.value = course[0];
+        checkbox.id = `courseCheckbox_${course[0]}`;
 
-uniquePrerequisites.forEach(prerequisite => {
-    const option = document.createElement("option");
-    option.value = prerequisite;
-    option.text = prerequisite;
-    prerequisiteDropdown.appendChild(option);
-});
+        img.src = course[3]
+        const label = document.createElement("label");
+        label.htmlFor = `courseCheckbox_${course[0]}`;
+        label.textContent = course[0];
+        h3.textContent = course[0];
+        // courseCheckboxes.appendChild(checkbox);
+        // courseCheckboxes.appendChild(img);
+        // courseCheckboxes.appendChild(h3);
+        box.appendChild(checkbox)
+        box.appendChild(img)
+        box.appendChild(h3);
+        courseCheckboxes.appendChild(box)
+        courseCheckboxes.appendChild(document.createElement("br"));
+          }
+        });
+      }
 
-// Function to filter courses by tutor
-function filterCoursesByTutor(tutor) {
-  return courses.filter(course => course.tutor === tutor);
-}
+      function submitForm() {
+        const selectedChild = childSelect.value;
+        const selectedCourses = Array.from(
+          document.querySelectorAll('input[type="checkbox"]:checked'),
+        ).map((checkbox) => checkbox.value);
 
-// Function to filter courses by prerequisite
-function filterCoursesByPrerequisite(prerequisite) {
-  return courses.filter(course => course.prerequisite === prerequisite);
-}
+        if (!selectedChild) {
+          alert("Please select a child.");
+          return;
+        }
+        if (selectedCourses.length === 0) {
+          alert("Please select a course.");
+          return;
+        }
 
-// Event listener for filter selection by tutor
-const tutorFilter = document.getElementById('tutor');
-tutorFilter.addEventListener('change', function() {
-  const selectedTutor = this.value;
-  const filteredCourses = filterCoursesByTutor(selectedTutor);
-  displayFilteredCourses(filteredCourses);
-});
+        const tutor = getTutor(selectedCourses[0]); // Assume all selected courses have the same tutor
+        const prerequisite = getPrerequisite(selectedCourses[0]); // Assume all selected courses have the same prerequisite
 
-// Event listener for filter selection by prerequisite
-const prerequisiteFilter = document.getElementById('prerequisite');
-prerequisiteFilter.addEventListener('change', function() {
-  const selectedPrerequisite = this.value;
-  const filteredCourses = filterCoursesByPrerequisite(selectedPrerequisite);
-  displayFilteredCourses(filteredCourses);
-});
+        const displayInfo = document.getElementById("displayInfo");
+        displayInfo.textContent = `Child: ${selectedChild}, Courses: ${selectedCourses.join(
+          ", ",
+        )}, Tutor: ${tutor}, Prerequisite: ${prerequisiteFilter.value? prerequisiteFilter.value: "none"}`;
 
-// Function to display filtered courses in the form
-function displayFilteredCourses(filteredCourses) {
-  const coursesForm = document.getElementById('enrollmentForm');
-  const coursesSection = document.querySelector('.Course');
-  
-  // Clear previous courses displayed in the form
-  coursesSection.innerHTML = '';
+        // Clear previous information
+        // Clear form
+        // Other logic as needed...
+      }
 
-  // Display filtered courses in the form
-  filteredCourses.forEach(course => {
-    const courseBox = document.createElement('div');
-    courseBox.classList.add('boox');
-    
-    const courseImg = document.createElement('img');
-    courseImg.src = `photos/${course.name.replace(/\s+/g, '-').toLowerCase()}.png`;
-    courseImg.alt = '';
-    
-    const courseTitle = document.createElement('h3');
-    courseTitle.textContent = course.name;
+      function getTutor(course) {
+        const courseInfo = courses.find((c) => c[0] === course);
+        return courseInfo ? courseInfo[1] : "N/A";
+      }
 
-    const courseCheckbox = document.createElement('label');
-    courseCheckbox.innerHTML = `<input type="checkbox" name="course" value="${course.name}">`;
-
-    courseBox.appendChild(courseImg);
-    courseBox.appendChild(courseTitle);
-    courseBox.appendChild(courseCheckbox);
-    coursesSection.appendChild(courseBox);
-  });
-}
-
-// Event listener for form submission
-const form = document.getElementById('enrollmentForm');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const selectedChild = document.getElementById('children').value;
-  const selectedCourses = document.querySelectorAll('input[name="course"]:checked');
-  const selectedTutor = document.getElementById('tutor').value;
-
-  if (selectedChild === 'All Kids' || selectedCourses.length === 0) {
-    alert('Please select a child and at least one course.');
-    return;
-  }
-
-// Prepare the information to display
-let coursesInfo = '<br>Selected Courses:<br>';
-  selectedCourses.forEach(course => {
-    coursesInfo += `- ${course.value} (Tutor: ${selectedTutor})`;
-  });
-
-  // Find the div where you want to display the information
-  const infoDisplay = document.getElementById('enrollmentInfo');
-
-  // Display information about the selected kid and tutor
-  infoDisplay.innerHTML = `Enrolled Kid: ${selectedChild} ${coursesInfo}`;
- 
-  // Clear the form or perform any additional actions here
-  form.reset();
-});
-
-</script>
-<script src="ByteJava.js"></script>
+      function getPrerequisite(course) {
+        const courseInfo = courses.find((c) => c[0] === course);
+        return courseInfo ? courseInfo[2] || "None" : "N/A";
+      }
+    </script>
 </body>
 </html>
